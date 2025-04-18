@@ -18,13 +18,41 @@
     />
     <title>Frontend Mentor | Blog preview card</title>
     <style>
+      :root {
+        --yellow: hsl(47, 88%, 63%);
+        --white: hsl(0, 0%, 100%);
+        --gray-500: hsl(0, 0%, 42%);
+        --gray-950: hsl(0, 0%, 7%);
+      }
+
       * {
         padding: 0;
         margin: 0;
       }
 
+      .text-preset-1 {
+        font-size: 24px;
+        font-weight: 800;
+      }
+
+      .text-preset-2 {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--gray-500);
+      }
+
+      .text-preset-3 {
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .text-preset-3-bold {
+        font-size: 14px;
+        font-weight: 800;
+      }
+
       body {
-        background-color: hsl(47, 88%, 63%);
+        background-color: var(--yellow);
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -33,21 +61,41 @@
         font-family: "Figtree", sans-serif;
         line-height: 150%;
         letter-spacing: 0px;
+        color: var(--gray-950);
       }
 
       .card-container {
-        background-color: hsl(0, 0%, 100%);
+        background-color: var(--white);
         padding: 24px;
         border-radius: 20px;
         border: 1px solid black;
         box-shadow: 8px 8px 0px 0px #000000;
-        max-width: 384px;
         margin-bottom: 1rem;
+        max-width: 384px; /* Réduisez cette valeur */
+        height: 522px;
+        width: 100%; /* Ajoutez cette ligne pour que la largeur s'adapte */
+        box-sizing: border-box; /* Ajoutez cette ligne pour inclure padding et border dans la largeur */
+      }
+
+      .card-container:hover {
+        p:nth-of-type(3) {
+          color: var(--yellow);
+        }
+      }
+
+      @media (max-width: 400px) {
+        .card-container {
+          max-width: 327px;
+          height: 501px;
+        }
       }
 
       .card-container img {
         display: block;
         border-radius: 10px;
+        max-width: 100%; /* Assurez-vous que l'image ne dépasse pas */
+        height: auto; /* Maintient le ratio d'aspect */
+        object-fit: contain; /* Assure que l'image s'adapte correctement */
       }
 
       .content {
@@ -55,11 +103,10 @@
         flex-direction: column;
         gap: 12px;
         margin-top: 24px;
-        max-width: 336px;
       }
 
       .category p {
-        background-color: hsl(47, 88%, 63%);
+        background-color: var(--yellow);
         display: inline;
         padding: 4px 12px;
         border-radius: 4px;
@@ -69,6 +116,11 @@
         display: flex;
         align-items: center;
         gap: 12px;
+      }
+
+      .author img {
+        width: 32px;
+        height: 32px;
       }
 
       .attribution {
@@ -90,17 +142,17 @@
         />
         <div class="content">
           <div class="category">
-            <p>Learning</p>
+            <p class="text-preset-3-bold">Learning</p>
           </div>
-          <p>Published 21 Dec 2023</p>
-          <p>HTML & CSS foundations</p>
-          <p>
+          <p class="text-preset-3">Published 21 Dec 2023</p>
+          <p class="text-preset-1">HTML & CSS foundations</p>
+          <p class="text-preset-2">
             These languages are the backbone of every website, defining
             structure, content, and presentation.
           </p>
           <div class="author">
             <img src="assets/images/image-avatar.webp" alt="user picture" />
-            <p>Greg Hooper</p>
+            <p class="text-preset-3-bold">Greg Hooper</p>
           </div>
         </div>
       </div>
